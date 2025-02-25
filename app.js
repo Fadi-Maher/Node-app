@@ -10,6 +10,10 @@ app.get('/', (req, res) => {
   res.sendFile("./views/home.html", { root: __dirname });
 });
 
+app.get('/feedBack.html', (req, res) => {
+  res.send("<h1>User name is sent</h1>");
+});
+
 mongoose.connect('mongodb+srv://Fady:Fady123@cluster0.2dhey.mongodb.net/all-data?retryWrites=true&w=majority&appName=Cluster0')
   .then(() => {
     app.listen(port, () => {
@@ -28,7 +32,7 @@ mongoose.connect('mongodb+srv://Fady:Fady123@cluster0.2dhey.mongodb.net/all-data
     const article = new myScema(req.body);  
     await article.save(); 
 
-    res.redirect('/');   
+    res.redirect("/feedBack.html");   
  
 });
 
